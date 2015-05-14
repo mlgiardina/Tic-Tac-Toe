@@ -1,5 +1,5 @@
 class Board
-  attr_accessor :visual_board
+  attr_accessor :visual_board, :first, :second, :third, :fourth, :fifth, :sixth, :seventh, :eighth, :ninth
   def initialize
     @first = 1
     @second = 2

@@ -1,6 +1,6 @@
 class Player
+  attr_accessor :name, :player_move
   def make_move
-    puts "Make your move"
-    user1_move = gets.chomp
+    @player_move = gets.chomp.to_i
   end
 end
