@@ -103,49 +103,65 @@ class Game
   def check_for_winner
     if @board.first == "X" && @board.second == "X" && @board.third == "X"
       player1_wins
+      replay_game
     elsif @board.fourth == "X" && @board.fifth == "X" && @board.sixth == "X"
       player1_wins
+      replay_game
     elsif @board.seventh == "X" && @board.eighth == "X" && @board.ninth == "X"
-    player1_wins
+      player1_wins
+      replay_game
     elsif @board.first == "X" && @board.fourth == "X" && @board.seventh == "X"
       player1_wins
+      replay_game
     elsif @board.second == "X" && @board.fifth == "X" && @board.eighth == "X"
       player1_wins
+      replay_game
     elsif @board.third == "X" && @board.sixth == "X" && @board.ninth == "X"
       player1_wins
+      replay_game
     elsif @board.first == "X" && @board.fifth == "X" && @board.ninth == "X"
       player1_wins
+      replay_game
     elsif @board.third == "X" && @board.fifth == "X" && @board.seventh == "X"
       player1_wins
+      replay_game
     end
     if @board.first == "O" && @board.second == "O" && @board.third == "O"
       player2_wins
+      replay_game
     elsif @board.fourth == "O" && @board.fifth == "O" && @board.sixth == "O"
       player2_wins
+      replay_game
     elsif @board.seventh == "O" && @board.eighth == "O" && @board.ninth == "O"
       player2_wins
+      replay_game
     elsif @board.first == "O" && @board.fourth == "O" && @board.seventh == "O"
       player2_wins
+      replay_game
     elsif @board.second == "O" && @board.fifth == "O" && @board.eighth == "O"
       player2_wins
+      replay_game
     elsif @board.third == "O" && @board.sixth == "O" && @board.ninth == "O"
       player2_wins
+      replay_game
     elsif @board.first == "O" && @board.fifth == "O" && @board.ninth == "O"
       player2_wins
+      replay_game
     elsif @board.third == "O" && @board.fifth == "O" && @board.seventh == "O"
       player2_wins
+      replay_game
     end
   end
 
   def player1_wins
-    puts "Congratulations #{@player1}.name! You win!!!"
+    puts "Congratulations #{@player1.name}! You win!!!"
     @player1.score += 1
     @still_playing = false
     puts "#{@player1.name}: #{@player1.score} \n#{@player2.name}: #{@player2.score}"
   end
 
   def player2_wins
-    puts "Congratulations #{@player2}.name! You win!!!"
+    puts "Congratulations #{@player2.name}! You win!!!"
     @player2.score += 1
     @still_playing = false
     puts "#{@player1.name}: #{@player1.score} \n#{@player2.name}: #{@player2.score}"
