@@ -8,17 +8,20 @@ class Game
     @still_playing = true
   end
 
+  def how_many_players
+    puts "1 or 2 players?"
+    @number_of_players = gets.chomp.to_i
+  end
+
   def play
     start
-    get_player_names
-    while @still_playing
-      player1_move
-      check_for_winner
-      player2_move
-      check_for_winner
+    how_many_players
+    if @number_of_players == 2
+      get_2_player_names
+      two_players
+    else
+      single_player
     end
-    replay_game
-
   end
 
   def start
@@ -31,20 +34,61 @@ class Game
     +------------------------+
     """
     sleep 1
-    system("clear")
   end
 
-  def get_player_names
+  def two_players
+    while @still_playing
+      player1_move
+      check_for_winner
+      player2_move
+      check_for_winner
+    end
+    replay_game
+  end
+
+  def single_player
+    get_1_player_name
+    while @still_playing
+      player1_move
+      check_for_winner
+      computer_move
+      check_for_winner
+    end
+    replay_game
+  end
+
+  def computer_move
+    if @board.first.class == Fixnum
+      @board.first = "O"
+    elsif @board.second.class == Fixnum
+      @board.second = "O"
+    elsif @board.third.class == Fixnum
+      @board.third = "O"
+    elsif @board.fourth.class == Fixnum
+      @board.fourth = "O"
+    elsif @board.fifth.class == Fixnum
+      @board.fifth = "O"
+    elsif @board.sixth.class == Fixnum
+      @board.sixth = "O"
+    elsif @board.seventh.class == Fixnum
+      @board.seventh = "O"
+    elsif @board.eighth.class == Fixnum
+      @board.eighth = "O"
+    elsif @board.ninth.class == Fixnum
+      @board.ninth = "O"
+    end
+  end
+
+  def get_1_player_name
+    puts "What is your name?"
+    @player1.name = gets.chomp
+    @player2.name = "Computer"
+  end
+  def get_2_player_names
     puts "Player 1, what is your name?"
     @player1.name = gets.chomp
     puts "Player 2, what is your name?"
     @player2.name = gets.chomp
-  end
-
-  def place_1_check
-    if @board.first.class != Fixnum
-      puts "That spot is already taken, please make another selection."
-    end
   end
 
   def player1_move
