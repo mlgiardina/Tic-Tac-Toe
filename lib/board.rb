@@ -10,7 +10,6 @@ class Board
     @seventh = 7
     @eighth = 8
     @ninth = 9
-    @real_board = [[1,2,3],[4,5,6],[7,8,9]]
   end
     def display_board
       puts"""

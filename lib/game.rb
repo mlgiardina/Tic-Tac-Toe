@@ -22,6 +22,7 @@ class Game
   end
 
   def start
+    system("clear")
     puts """
     +------------------------+
     +                        +
@@ -40,6 +41,12 @@ class Game
     @player2.name = gets.chomp
   end
 
+  def place_1_check
+    if @board.first.class != Fixnum
+      puts "That spot is already taken, please make another selection."
+    end
+  end
+
   def player1_move
     system("clear")
     @board.display_board
@@ -47,25 +54,80 @@ class Game
     @player1.make_move
     case @player1.player_move
     when 1
-      @board.first = "X"
+      if @board.first.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player1_move
+      else
+        @board.first = "X"
+      end
     when 2
-      @board.second = "X"
+      if @board.second.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player1_move
+      else
+        @board.second = "X"
+      end
     when 3
+      if @board.third.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player1_move
+      else
       @board.third = "X"
+      end
     when 4
+      if @board.fourth.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player1_move
+      else
       @board.fourth = "X"
+      end
     when 5
+      if @board.fifth.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player1_move
+      else
       @board.fifth = "X"
+      end
     when 6
+      if @board.sixth.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player1_move
+      else
       @board.sixth = "X"
+      end
     when 7
+      if @board.seventh.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player1_move
+      else
       @board.seventh = "X"
+      end
     when 8
+      if @board.eighth.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player1_move
+      else
       @board.eighth = "X"
+      end
     when 9
+      if @board.ninth.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player1_move
+      else
       @board.ninth = "X"
+      end
     else
       puts "That's not a valid response."
+      sleep 1
       player1_move
     end
   end
@@ -77,25 +139,80 @@ class Game
     @player2.make_move
     case @player2.player_move
     when 1
-      @board.first = "O"
+      if @board.first.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player2_move
+      else
+        @board.first = "O"
+      end
     when 2
-      @board.second = "O"
+      if @board.second.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player2_move
+      else
+        @board.second = "O"
+      end
     when 3
-      @board.third = "O"
+      if @board.third.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player2_move
+      else
+        @board.third = "O"
+      end
     when 4
-      @board.fourth = "O"
+      if @board.fourth.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player2_move
+      else
+        @board.fourth = "O"
+      end
     when 5
-      @board.fifth = "O"
+      if @board.fifth.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player2_move
+      else
+        @board.fifth = "O"
+      end
     when 6
-      @board.sixth = "O"
+      if @board.sixth.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player2_move
+      else
+        @board.sixth = "O"
+      end
     when 7
-      @board.seventh = "O"
+      if @board.seventh.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player2_move
+      else
+        @board.seventh = "O"
+    end
     when 8
-      @board.eighth = "O"
+      if @board.eighth.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player2_move
+      else
+        @board.eighth = "O"
+      end
     when 9
-      @board.ninth = "O"
+      if @board.ninth.class != Fixnum
+        puts "That spot is already taken, please make another selection."
+        sleep 1
+        player2_move
+      else
+        @board.ninth = "O"
+      end
     else
       puts "That's not a valid response."
+      sleep 1
       player2_move
     end
   end
@@ -149,6 +266,11 @@ class Game
       replay_game
     elsif @board.third == "O" && @board.fifth == "O" && @board.seventh == "O"
       player2_wins
+      replay_game
+    end
+    #this line is ridiculous. i need to find a better way to write it.
+    if @board.first.class != Fixnum && @board.second.class != Fixnum && @board.third.class != Fixnum && @board.fourth.class != Fixnum && @board.fifth.class != Fixnum && @board.sixth.class != Fixnum && @board.seventh.class != Fixnum && @board.eighth.class != Fixnum && @board.ninth.class != Fixnum
+      puts "The game is a draw!"
       replay_game
     end
   end
