@@ -14,10 +14,8 @@ class Game
   end
 
   def play
-    start
     how_many_players
     if @number_of_players == 2
-      get_2_player_names
       two_players
     else
       single_player
@@ -37,6 +35,11 @@ class Game
   end
 
   def two_players
+    if @player2.name == "Computer"
+      @player1.score = 0
+      @player2.score = 0
+      get_2_player_names
+    end
     while @still_playing
       player1_move
       check_for_winner
@@ -47,6 +50,10 @@ class Game
   end
 
   def single_player
+    if @player2.name != "Computer"
+      @player1.score = 0
+      @player2.score = 0
+    end
     get_1_player_name
     while @still_playing
       player1_move
