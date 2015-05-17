@@ -26,9 +26,9 @@ class Game
     system("clear")
     puts """
     +------------------------+
-    +                        +
+    |                        |
     + Welcome to Tic-Tac-Toe +
-    +                        +
+    |                        |
     +------------------------+
     """
     sleep 1
@@ -38,6 +38,8 @@ class Game
     if @player2.name == "Computer"
       @player1.score = 0
       @player2.score = 0
+      get_2_player_names
+    elsif @player1.name == nil
       get_2_player_names
     end
     while @still_playing
@@ -327,6 +329,8 @@ class Game
   end
 
   def player1_wins
+    system("clear")
+    @board.display_board
     puts "Congratulations #{@player1.name}! You win!!!"
     @player1.score += 1
     @still_playing = false
@@ -334,6 +338,8 @@ class Game
   end
 
   def player2_wins
+    system("clear")
+    @board.display_board
     puts "Congratulations #{@player2.name}! You win!!!"
     @player2.score += 1
     @still_playing = false
