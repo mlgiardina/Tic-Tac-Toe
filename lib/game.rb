@@ -22,7 +22,7 @@ class Game
     end
   end
 
-  def start
+  def start_message
     system("clear")
     puts """
     +------------------------+
@@ -93,6 +93,7 @@ class Game
     @player1.name = gets.chomp
     @player2.name = "Computer"
   end
+
   def get_2_player_names
     puts "Player 1, what is your name?"
     @player1.name = gets.chomp
@@ -331,16 +332,16 @@ class Game
   def player1_wins
     system("clear")
     @board.display_board
-    puts "Congratulations #{@player1.name}! You win!!!"
+    puts "Congratulations, #{@player1.name}! You win!!!"
     @player1.score += 1
     @still_playing = false
     puts "#{@player1.name}: #{@player1.score} \n#{@player2.name}: #{@player2.score}"
   end
 
-  def player2_wins
+  def player2_wins # I need to change this so that in single player it doesn't congratulate the computer.
     system("clear")
     @board.display_board
-    puts "Congratulations #{@player2.name}! You win!!!"
+    puts "Congratulations, #{@player2.name}! You win!!!"
     @player2.score += 1
     @still_playing = false
     puts "#{@player1.name}: #{@player1.score} \n#{@player2.name}: #{@player2.score}"
